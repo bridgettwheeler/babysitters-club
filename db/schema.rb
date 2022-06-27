@@ -10,25 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_22_154237) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_27_165800) do
   create_table "babysitters", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "pay_rate"
+    t.string "about_me"
+    t.integer "booking_id"
   end
 
   create_table "bookings", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "date"
+    t.string "status"
+    t.integer "babysitter_id"
+    t.integer "user_id"
+    t.integer "kid_id"
   end
 
   create_table "kids", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "age"
+    t.integer "parent_id"
+    t.integer "babysitter_id"
+    t.integer "booking_id"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "budget"
+    t.string "about_us"
+    t.integer "babysitter_id"
+    t.integer "booking_id"
+    t.integer "kid_id"
   end
 
 end
