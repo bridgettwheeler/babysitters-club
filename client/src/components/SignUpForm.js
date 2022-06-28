@@ -6,9 +6,13 @@ function SignUpForm({ onLogin }) {
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [budget, setBudget] = useState("");
+  const [aboutUs, setAboutUs] = useState("");
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
+// this need to be where they enter all their profile information - including about kids. It needs to sid the kids stuff to kids on back end.
   function handleSubmit(e) {
     e.preventDefault();
     setErrors([]);
@@ -22,7 +26,12 @@ function SignUpForm({ onLogin }) {
         username,
         password,
         password_confirmation: passwordConfirmation,
-        email
+        email,
+        firstName,
+        lastName,
+        budget,
+        aboutUs
+
       })
     }).then((r) => {
       setIsLoading(false);
@@ -44,6 +53,7 @@ function SignUpForm({ onLogin }) {
           autoComplete="off"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          required
         />
       </FormField>
       <FormField>
@@ -54,6 +64,7 @@ function SignUpForm({ onLogin }) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           autoComplete="current-password"
+          required
         />
       </FormField>
       <FormField>
@@ -64,6 +75,7 @@ function SignUpForm({ onLogin }) {
           value={passwordConfirmation}
           onChange={(e) => setPasswordConfirmation(e.target.value)}
           autoComplete="current-password"
+          required
         />
       </FormField>
       <FormField>
@@ -74,6 +86,49 @@ function SignUpForm({ onLogin }) {
           autoComplete="off"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+      </FormField>
+      <FormField>
+        <Label htmlFor="first_name">First Name</Label>
+        <Input
+          type="text"
+          id="first_name"
+          autoComplete="off"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+          required
+        />
+      </FormField>
+      <FormField>
+        <Label htmlFor="last_name">Last Name</Label>
+        <Input
+          type="text"
+          id="last_name"
+          autoComplete="off"
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+          required
+        />
+      </FormField>
+      <FormField>
+        <Label htmlFor="budget">Budget</Label>
+        <Input
+          type="text"
+          id="budget"
+          autoComplete="off"
+          value={budget}
+          onChange={(e) => setBudget(e.target.value)}
+        />
+      </FormField>
+      <FormField>
+        <Label htmlFor="about_us">About Us</Label>
+        <Input
+          type="text"
+          id="about_us"
+          autoComplete="off"
+          value={aboutUs}
+          onChange={(e) => setAboutUs(e.target.value)}
         />
       </FormField>
       <FormField>

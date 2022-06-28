@@ -10,8 +10,7 @@ class Api::BookingsController < ApplicationController
       end
     
       def create
-        kid = @current_user.created_kids.find_or_create_by!(first_name: params[:kid][:first_name]) do |kid| 
-          kid.last_name = params[:kid][:last_name]
+        kid = @current_user.created_kids.find_or_create_by!(first_name: params[:kid][:first_name], last_name: params[:kid][:last_name]) do |kid| 
           kid.age = params[:kid][:age]
         end
         booking = @current_user.bookings.create!(kid:kid, date: params[:booking][:date])
@@ -19,21 +18,14 @@ class Api::BookingsController < ApplicationController
       end
 
       def show
-        booking = Booking.find_by(id:params[:id])
-        if booking
+        booking = Booking.find_by!(id:params[:id])
         render json: booking
-        else
-          render json: "No booking found"
-        end
       end
 
       def update
-        booking = Booking.find_by(id:params[:id])
-        if booking&.update(booking_params)
+        booking = Booking.find_by!(id:params[:id])
+        booking.update!(booking_params)
         render json: booking
-        else
-          render json: {errors: booking.errors.full_messages.to_sentence}
-        end
       end
 
       def destroy
