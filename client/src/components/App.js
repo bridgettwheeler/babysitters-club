@@ -6,6 +6,7 @@ import NewBooking from "../pages/NewBooking";
 import Babysitters from "../pages/Babysitters";
 import Profile from "../pages/Profile";
 import EditBookingForm from "./EditBookingForm";
+import EditProfileForm from "./EditProfileForm";
 
 
 function App() {

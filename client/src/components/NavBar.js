@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "../styles";
 import { NavLink } from "react-router-dom"
@@ -31,11 +31,11 @@ function NavBar({ user, setUser }) {
                 style={style}
                 to="/profile"
             >Profile</NavLink>
-      <Nav>
+      {/* <Nav> */}
         <Button variant="outline" onClick={handleLogoutClick}>
           Logout
         </Button>
-      </Nav>
+      {/* </Nav> */}
     </Wrapper>
   );
 }

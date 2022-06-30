@@ -1,8 +1,15 @@
-import React from 'react'
+import BabysitterCard from "./BabysitterCard";
 
-function BabysittersList() {
+const BabysittersList = ({user, babysitters}) => {
+    const renderBabysitters = () => {
+        return (
+          <div>
+          {babysitters.map(babysitter => <BabysitterCard key={babysitter.id} babysitter={babysitter} user={user} />)}
+          </div>  
+        )
+    }
   return (
-    <div>BabysittersList</div>
+    <div>{renderBabysitters()}</div>
   )
 }
 
