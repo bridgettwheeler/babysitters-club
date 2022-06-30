@@ -1,6 +1,6 @@
 import BabysittersList from "../components/BabysittersList";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+
 
 
 const BabysittersContainer = ({user}) => {
@@ -31,9 +31,6 @@ const BabysittersContainer = ({user}) => {
     <div>
         {/* <button onClick={handleClick}> Order by years of experience or rating...</button> */}
         <BabysittersList user={user} babysitters={babysitters} />
-        <Link to="/bookings/new"><button>Book Me!</button></Link>
-        {/* It would be nice to do custom route here that creates a booking for this specific babysitter without having to fill the form out from scratch. Like if this sitter is preselected */}
-        
     </div>
   )
 }
