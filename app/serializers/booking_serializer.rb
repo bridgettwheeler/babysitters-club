@@ -1,3 +1,3 @@
 class BookingSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :user, :date, :babysitter
 end
